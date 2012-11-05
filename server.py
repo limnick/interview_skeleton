@@ -4,15 +4,16 @@ import json
 
 earthquake_csv = csv.reader(open('quakes.csv'))
 earthquakes = []
+
+record_keys = earthquake_csv.next()
 for earthquake in earthquake_csv:
-    earthquakes.append(earthquake)
+    earthquakes.append(dict(zip(record_keys, earthquake)))
 
 
 class EarthquakeAPI(object):
     @cherrypy.expose
     def index(self):
-        first_ten_elements = earthquakes[:10]
-        return json.dumps(first_ten_elements)
+        return json.dumps(earthquakes[:100])
 
 if __name__ == '__main__':
     cherrypy.quickstart(EarthquakeAPI())

@@ -10,5 +10,11 @@ class TestAPI(unittest.TestCase):
         self.assertIsInstance(index_response, list)
         self.assertTrue(len(index_response) > 0)
 
+    def test_json_format(self):
+        index_json_response = EarthquakeAPI().index()
+        index_response = json.loads(index_json_response)
+
+        self.assertIsInstance(index_response[0], dict)
+
 if __name__ == '__main__':
     unittest.main()
