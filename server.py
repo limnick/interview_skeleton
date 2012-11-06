@@ -4,8 +4,9 @@ import json
 
 earthquake_csv = csv.reader(open('quakes.csv'))
 earthquakes = []
+headers = [str(x).lower() for x in earthquake_csv.next()]
 for earthquake in earthquake_csv:
-    earthquakes.append(earthquake)
+    earthquakes.append(dict(zip(headers, earthquake)))
 
 
 class EarthquakeAPI(object):

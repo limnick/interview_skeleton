@@ -6,12 +6,23 @@
         <script src="js/jquery.js"></script>
         <script src="js/underscore.js"></script>
         <script src="js/backbone.js"></script>
+        <script src="js/backbone.marionette.js"></script>
+
         <script src="js/bootstrap.js"></script>
         <script src="js/app.js"></script>
     </head>
     <body>
-        <div class="container">
-
+        <div class="container" id="viewport">
+            
         </div>
     </body>
+    <script id="quake-item-view" type="text/template">
+        <td><%= src %></td>
+        <td><%= region %></td>
+        <td><%= lat %></td>
+        <td><%= lon %></td>
+        <td><%= depth %></td>
+        <td><%= magnitude %></td>
+        <td><%= datetime %></td>
+    </script>
 </html>
